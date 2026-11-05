@@ -67,3 +67,5 @@ jobs:
     - name: Docker push
       run: docker push ghcr.io/vacgo/cubix-cloudnative-block1-homework:springboot
 
+    - name: Verify Docker image
+      run: bash verify-image.sh
