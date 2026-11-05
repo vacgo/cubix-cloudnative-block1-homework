@@ -16,7 +16,7 @@ public class ApplicationController {
 
     private final String defaultMessage;
 
-    public ApplicationController(@Value("${hw.message.default}") String defaultMessage) {
+    public ApplicationController(@Value("This is a default message") String defaultMessage) {
         this.defaultMessage = defaultMessage;
     }
 
