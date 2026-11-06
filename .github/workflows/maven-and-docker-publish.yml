@@ -29,11 +29,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
 
-    - name: Publish to GitHub Packages Apache Maven
-      run: mvn deploy
-      env:
-        GITHUB_TOKEN: ${{ github.token }}
-
     - name: Upload artifacts to Docker job
       uses: actions/upload-artifact@v7
       with:
@@ -66,6 +61,14 @@ jobs:
           
     - name: Docker push
       run: docker push ghcr.io/vacgo/cubix-cloudnative-block1-homework:springboot
-
+      
+  verify:
+ 
+    runs-on: ubuntu-latest
+    needs: docker
+    permissions:
+      contents: read
+      packages: write
+    steps:
     - name: Verify Docker image
       run: bash verify-image.sh
