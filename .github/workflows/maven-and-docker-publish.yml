@@ -62,7 +62,7 @@ jobs:
     - name: Docker push
       run: docker push ghcr.io/vacgo/cubix-cloudnative-block1-homework:springboot
       
- verify:
+  verify:
  
     runs-on: ubuntu-latest
     needs: docker
